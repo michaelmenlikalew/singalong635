@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>I Left My Heart In SF</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            html, body {background-image : url("SF.jpg"); background-position: center; background-size: cover;
+                        background-repeat: no-repeat; width: 100%; height: 100%; display: flex; flex-direction: column;
+                        justify-content: center; align-items: center}
+            textarea {background-color: rgba(255,255,255,.5); border: none;
+                      font-size: 18px; color: black}
+        </style>
+    </head>
+    <H1 style ="background-color:orange"> City of San Francisco </H1>
+    <body>
+        <textarea style = "height: 350px; width: 600px; padding: 25px" readonly>
+            I Left My Heart in San Francisco
+
+The loveliness of Paris seems somehow sadly gray
+The glory that was Rome is of another day
+I've been terribly alone and forgotten in Manhattan
+I'm going home to my city by the Bay
+I left my heart in San Francisco
+High on a hill, it calls to me
+To be where little cable cars climb halfway to the stars
+The morning fog may chill the air, I don't care
+My love waits there in San Francisco
+Above the blue and windy sea
+When I come home to you, San Francisco
+Your golden sun will shine for me 
+
+        </textarea>
+        
+        <br><br><br>
+        <audio controls id = "MusicPlayer">
+            <source src = "I Left My Heart In SF.mp3" type = "audio/mpeg">
+        </audio><br><br>
+        <a href = "index.html-link.htm" style="background-color:white"> I Left My Heart in San Francisco </a>
+         
+	<script>
+		var date = new Date();
+                var setTime = 10 + (48/60); //Here you can set any time you want
+                var startAt = setTime * 60 * 60 * 1000
+                var stopAfter = 2 * 46 * 1000; // Here you can stop playing after certain time 
+                var Adjustment = (7 * 60 * 60 * 1000); //time zone adustment cos minus 7 
+                var TwentyFourHours = 24 * 60 * 60 * 1000;
+                
+                setInterval(function(){
+                    date = new Date();
+                    var mod = (date.getTime() - Adjustment) % TwentyFourHours;
+                    if( mod > startAt && mod < startAt + stopAfter){
+                        document.getElementById("MusicPlayer").play();
+                    }
+                    else{
+                        document.getElementById("MusicPlayer").pause();
+                    }
+                }, 1000);
+	</script>
+    </body>
+</html>
